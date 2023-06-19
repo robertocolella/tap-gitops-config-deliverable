@@ -8,14 +8,16 @@ metadata:
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/component: deliverable
     app.tanzu.vmware.com/deliverable-type: web
+    deliverable-intent: code-promotion
 spec:
   params:
   - name: gitops_ssh_secret
     value: git-secret
+  - name: gitops_sub_path
+    value: config/my-apps/springboot-maven
   source:
     git:
       url: https://github.com/robertocolella/tap-gitops-config.git
       ref:
         branch: staging
-    subPath: config/my-apps/springboot-maven
 
