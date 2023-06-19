@@ -1,0 +1,21 @@
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: springboot-maven
+  namespace: my-apps
+  labels:
+    app.kubernetes.io/part-of: springboot-maven
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: deliverable
+    app.tanzu.vmware.com/deliverable-type: web
+spec:
+  params:
+  - name: gitops_ssh_secret
+    value: git-secret
+  source:
+    git:
+      url: https://github.com/robertocolella/tap-gitops-config.git
+      ref:
+        branch: staging
+    subPath: config/my-apps/springboot-maven
+
